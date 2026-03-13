@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hailing Wang</title>
+  <title>Your Name</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -11,12 +11,13 @@
       --muted: #4b5563;
       --accent: #2563eb;
       --border: #e5e7eb;
+      --card: #ffffff;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      background: var(--bg);
+      background: radial-gradient(circle at top, #e0f2fe 0, #f9fafb 45%, #f9fafb 100%);
       color: var(--text);
       line-height: 1.6;
     }
@@ -26,33 +27,56 @@
       max-width: 900px;
       margin: 40px auto 80px;
       padding: 0 16px;
-      background: #fff;
+    }
+    .card {
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border-radius: 16px;
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.12);
+      overflow: hidden;
     }
     header {
+      padding: 24px 28px 18px;
       border-bottom: 1px solid var(--border);
-      padding: 24px 24px 16px;
+      background: linear-gradient(135deg, #eff6ff, #eef2ff);
+    }
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .photo img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+      background: #e5e7eb;
     }
     h1 {
       margin: 0;
       font-size: 32px;
       letter-spacing: 0.02em;
     }
-    .title {
+    .subtitle {
       margin-top: 4px;
       font-weight: 600;
+      color: #1f2937;
     }
     .meta {
       margin-top: 8px;
       font-size: 14px;
       color: var(--muted);
     }
-    .meta span { margin-right: 12px; }
+    .meta span { display: inline-block; margin-right: 12px; }
+    .tagline {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #4b5563;
+    }
     .content {
-      padding: 24px;
-      padding-top: 8px;
+      padding: 24px 28px 28px;
     }
     h2 {
       margin-top: 24px;
@@ -88,108 +112,135 @@
       max-height: 32px;
       object-fit: contain;
     }
-    .pub-title {
-      font-weight: 600;
-    }
+    .pub { margin-bottom: 10px; }
+    .pub-title { font-weight: 600; }
     .pub-authors { font-size: 14px; }
     .pub-venue { font-style: italic; font-size: 14px; }
     .pub-links a { margin-right: 8px; font-size: 14px; }
+
+    footer {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #9ca3af;
+      text-align: right;
+    }
+
     @media (max-width: 640px) {
-      .page { margin: 16px auto 40px; }
-      header, .content { padding: 16px; }
+      .page { margin: 16px auto 32px; }
+      header, .content { padding: 16px 16px 18px; }
+      .top { flex-direction: column; align-items: flex-start; }
+      .photo img { width: 120px; height: 120px; }
       td.logo { display: none; }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <header>
-      <h1>Your Name</h1>
-      <div class="title"><strong>PhD Student</strong></div>
-      <div class="meta">
-        <span>Department of XXX</span>
-        <span>Some University</span>
-        <span>Email: you [at] example.com</span>
-        <span>GitHub: <a href="https://github.com/yourname" target="_blank">@yourname</a></span>
+    <div class="card">
+      <header>
+        <div class="top">
+          <div class="photo">
+            <!-- 把 img/me.jpg 换成你的实际路径/文件名 -->
+            <img src="img/me.jpg" alt="Your Name" />
+          </div>
+          <div class="info">
+            <h1>Your Name</h1>
+            <div class="subtitle">PhD Student</div>
+            <div class="meta">
+              <span>Department of XXX</span>
+              <span>Some University</span><br />
+              <span>Email: you [at] example.com</span>
+              <span>GitHub: <a href="https://github.com/yourname" target="_blank">@yourname</a></span>
+            </div>
+            <div class="tagline">
+              Research interests: Efficient AI, Generative Models, Multimodal LLMs, Foundation Models.
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <h2>About Me</h2>
+        <p>
+          I am a X-th year PhD student in the Department of XXX at Some University,
+          advised by Prof. XXX. My research interests center around
+          <strong>Efficient and Scalable AI</strong>, including
+          <strong>Generative Models</strong>, <strong>Multimodal Large Language Models</strong>,
+          and <strong>Foundation Models</strong>.
+        </p>
+        <p>
+          I am currently exploring full-time opportunities in industry and would
+          welcome the chance to connect if there is an aligned interest.
+        </p>
+
+        <h2>News</h2>
+        <ul class="news-list">
+          <li><span class="date">2026.02</span>We open-sourced <strong>Fine-T2I</strong>, a high-quality, high-resolution dataset for T2I fine-tuning.</li>
+          <li><span class="date">2026.01</span>Three papers accepted by <strong>ICLR 2026</strong>.</li>
+          <li><span class="date">2025.07</span>One paper accepted by <strong>NeurIPS 2025</strong>.</li>
+          <!-- Add more news here -->
+        </ul>
+
+        <h2>Experiences</h2>
+        <table>
+          <tr>
+            <td>
+              <a href="https://web.northeastern.edu/smilelab/" target="_blank">SMILE Lab</a>, Northeastern University, Boston<br />
+              Graduate Student, Sep. 2021 – Now<br />
+              Supervisor: Prof. <a href="#" target="_blank">Yun Raymond Fu</a>
+            </td>
+            <td class="logo">
+              <img src="pic/NEU-logo.png" alt="NEU" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Adobe Research, San Jose<br />
+              Research Intern, Jun. 2024 – Now<br />
+              Supervisors: <a href="#" target="_blank">Long Mai</a>,
+              <a href="#" target="_blank">Aniruddha Mahapatra</a>
+            </td>
+            <td class="logo">
+              <img src="pic/adobe-logo.png" alt="Adobe" />
+            </td>
+          </tr>
+          <!-- Add more experiences here -->
+        </table>
+
+        <h2>Publications</h2>
+
+        <p class="pub">
+          <span class="pub-title">Fine-T2I: An Open, Large-Scale, and Diverse Dataset for High-Quality T2I Fine-Tuning</span><br />
+          <span class="pub-authors">Xu Ma, <strong>Your Name</strong>, Qihua Dong, Yun Fu</span><br />
+          <span class="pub-venue">Preprint, 2026.</span><br />
+          <span class="pub-links">
+            <a href="#" target="_blank">Dataset</a>
+            <a href="#" target="_blank">arXiv</a>
+          </span>
+        </p>
+
+        <p class="pub">
+          <span class="pub-title">Look More but Care Less in Video Recognition</span><br />
+          <span class="pub-authors"><strong>Your Name</strong>, Coauthor A, Coauthor B, Yun Fu</span><br />
+          <span class="pub-venue">NeurIPS, 2022.</span><br />
+          <span class="pub-links">
+            <a href="#" target="_blank">arXiv</a>
+            <a href="#" target="_blank">Code</a>
+          </span>
+        </p>
+
+        <!-- Add more publications in the same pattern -->
+
+        <h2>Professional Activities</h2>
+        <ul>
+          <li>Reviewer for CVPR, NeurIPS, ICLR, ICML, ICCV, ECCV, TPAMI, TIP</li>
+          <!-- Add more service here -->
+        </ul>
+
+        <footer>
+          Last updated: 2026-03-13
+        </footer>
       </div>
-    </header>
-
-    <div class="content">
-      <h2>About Me</h2>
-      <p>
-        I am a X-th year PhD student in the Department of XXX at Some University,
-        advised by Prof. XXX. My research interests center around
-        <strong>Efficient and Scalable AI</strong>, including
-        <strong>Generative Models</strong>, <strong>Multimodal LLMs</strong>, and
-        <strong>Foundation Models</strong>.
-      </p>
-      <p>
-        I am currently exploring full-time opportunities in industry and would
-        welcome the chance to connect if there is an aligned interest.
-      </p>
-
-      <h2>News</h2>
-      <ul class="news-list">
-        <li><span class="date">2026.02</span>We open-sourced <strong>Fine-T2I</strong>, a high-quality, high-resolution T2I fine-tuning dataset.</li>
-        <li><span class="date">2026.01</span>Three papers accepted by <strong>ICLR 2026</strong>.</li>
-        <li><span class="date">2025.07</span>One paper accepted by <strong>NeurIPS 2025</strong>.</li>
-        <!-- Add more news here -->
-      </ul>
-
-      <h2>Experiences</h2>
-      <table>
-        <tr>
-          <td>
-            <a href="https://web.northeastern.edu/smilelab/" target="_blank">SMILE Lab</a>, Northeastern University, Boston<br />
-            Graduate Student, Sep. 2021 – Now<br />
-            Supervisor: Prof. <a href="#" target="_blank">Yun Raymond Fu</a>
-          </td>
-          <td class="logo">
-            <img src="./pic/NEU-logo.png" alt="NEU" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Adobe Research, San Jose<br />
-            Research Intern, Jun. 2024 – Now<br />
-            Supervisors: <a href="#" target="_blank">Long Mai</a>, <a href="#" target="_blank">Aniruddha Mahapatra</a>
-          </td>
-          <td class="logo">
-            <img src="./pic/adobe-logo.png" alt="Adobe" />
-          </td>
-        </tr>
-        <!-- Add more experiences here -->
-      </table>
-
-      <h2>Publications</h2>
-
-      <p class="pub">
-        <span class="pub-title">Fine-T2I: An Open, Large-Scale, and Diverse Dataset for High-Quality T2I Fine-Tuning</span><br />
-        <span class="pub-authors">Xu Ma, <strong>Your Name</strong>, Qihua Dong, Yun Fu</span><br />
-        <span class="pub-venue">Preprint, 2026.</span><br />
-        <span class="pub-links">
-          <a href="#" target="_blank">Dataset</a>
-          <a href="#" target="_blank">arXiv</a>
-        </span>
-      </p>
-
-      <p class="pub">
-        <span class="pub-title">Look More but Care Less in Video Recognition</span><br />
-        <span class="pub-authors"><strong>Your Name</strong>, Coauthor A, Coauthor B, Yun Fu</span><br />
-        <span class="pub-venue">NeurIPS, 2022.</span><br />
-        <span class="pub-links">
-          <a href="#" target="_blank">arXiv</a>
-          <a href="#" target="_blank">Code</a>
-        </span>
-      </p>
-
-      <!-- Add more publications in the same pattern -->
-
-      <h2>Professional Activities</h2>
-      <ul>
-        <li>Reviewer for CVPR, NeurIPS, ICLR, ICML, ICCV, ECCV</li>
-        <!-- Add more service here -->
-      </ul>
     </div>
   </div>
 </body>
